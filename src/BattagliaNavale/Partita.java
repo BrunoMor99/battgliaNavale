@@ -5,8 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Partita {
-    Utente utente1;
-    Utente utente2;
+    private Utente utente1;
+    private Utente utente2;
+    private int punteggioMassimo=0;
+
 
     public Partita(String utente1, String utente2) {
         this.utente1 = new Utente(utente1);
@@ -37,5 +39,13 @@ public class Partita {
 
     public Utente getUtente2() {
         return utente2;
+    }
+    public void setPunteggioMassimo(List<Nave> navi){
+        for(Nave nave :navi){
+            this.punteggioMassimo+=nave.getLength();
+        }
+    }
+    public int getPunteggioMassimo(){
+        return punteggioMassimo;
     }
 }

@@ -47,13 +47,13 @@ public class Utente implements grid{
         nave.setNave(this.Griglia);
 
     }
-    boolean spara(int X, int Y){
+    boolean spara(int X, int Y, Partita partita){
         if(avversario.Griglia[Y][X]=='X'){
             this.IncrementaPunteggio();
             grid.colpito(X, Y, avversario.Griglia);
             if (!grid.controlloAffondata(X, Y, avversario.Griglia))System.out.println("Colpita");
             else System.out.println("Colpita e affondata");
-            return grid.controlloVittoria(avversario.Griglia);
+            return grid.controlloVittoria(partita, this);
         }else {
             System.out.println("Mancato");
             return false;

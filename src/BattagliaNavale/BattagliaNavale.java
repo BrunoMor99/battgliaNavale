@@ -29,8 +29,8 @@ public class BattagliaNavale {
 
         while (!gameOver){
 
-            gameOver=chiediCord(partita.getUtente1());
-            if(!gameOver)gameOver=chiediCord(partita.getUtente2());
+            gameOver=chiediCord(partita.getUtente1(), partita);
+            if(!gameOver)gameOver=chiediCord(partita.getUtente2(), partita);
         }
         if (partita.getUtente1().getPunteggio()>partita.getUtente2().getPunteggio()){
             System.out.println(partita.getUtente1().getNome()+" ha vinto!");
@@ -46,12 +46,12 @@ public class BattagliaNavale {
             System.out.println(partita.getUtente2().getNome()+": "+partita.getUtente2().getPunteggio());
         }
     }
-    public static boolean chiediCord(Utente utente){
+    public static boolean chiediCord(Utente utente, Partita partita){
         System.out.println(utente.getNome()+"dove vuoi sparare?");
         Scanner MyScan = new Scanner(System.in);
         int cX = MyScan.nextInt();
         int cY = MyScan.nextInt();
-        return utente.spara(cX, cY);
+        return utente.spara(cX, cY, partita);
     }
 
 }

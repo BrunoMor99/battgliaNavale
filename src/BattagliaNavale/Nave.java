@@ -19,4 +19,8 @@ public abstract class Nave {
         }
     }
     public abstract String toString();
+
+    public int getLength() {
+        return length;
+    }
 }

@@ -25,12 +25,8 @@ public interface grid {
         if(M[Y-1][X]=='_'&&M[Y+1][X]=='_'&&M[Y][X-1]=='_'&&M[Y][X+1]=='_')return true;
         else return false;
     }
-    public static boolean controlloVittoria(char M[][]){
-        for (int i=0; i<10; i++){
-            for (int j=0; j<10; j++){
-                if (M[i][j]=='X')return false;
-            }
-        }
-        return true;
+    public static boolean controlloVittoria(Partita partita, Utente utente){
+        if (utente.getPunteggio()==partita.getPunteggioMassimo())return true;
+        else return false;
     }
 }
