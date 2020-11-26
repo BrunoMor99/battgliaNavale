@@ -6,14 +6,17 @@ public class Utente implements grid{
     protected char Griglia[][]=new char[10][10];
     private int punteggio=0;
     private String nome;
-    private Utente avversario = new Utente();
+    private Utente avversario;
 
 
-    public Utente() {
-    }
+
 
     public Utente(String nome) {
         this.nome = nome;
+    }
+
+    public void setAvversario(Utente avversario) {
+        this.avversario = avversario;
     }
 
     public int getPunteggio() {
