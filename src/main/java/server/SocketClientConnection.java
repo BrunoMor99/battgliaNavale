@@ -54,8 +54,9 @@ public class SocketClientConnection extends Observable<String> implements IClien
             outputStream = new ObjectOutputStream(socket.getOutputStream());
 
             send("BATTAGLIA NAVALE 2.0\ndeveloped by Bruno Morelli, Alberto Mosconi\n\nWhat is your name?");
-            String read = inputStream.nextLine();
-            name = read;
+            name = inputStream.nextLine();
+
+            server.lobby(this, name);
 
 
         } catch (IOException | NoSuchElementException e) {
